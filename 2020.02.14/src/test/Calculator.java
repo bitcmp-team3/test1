@@ -14,18 +14,18 @@ public class Calculator extends JFrame implements ActionListener {
 	JPanel panel;
 	JButton b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, b20;
 
-	String val1 = null, val2 = null, sign = null; // val1°ú va2´Â ÇÇ¿¬»êÀÚ, signÀº ¿¬»êÀÚ
-	Double result = 0.0; // ¿¬»êÀÇ °á°ú¸¦ ÀúÀå
+	String val1 = null, val2 = null, sign = null; // val1ê³¼ va2ëŠ” í”¼ì—°ì‚°ì, signì€ ì—°ì‚°ì
+	Double result = 0.0; // ì—°ì‚°ì˜ ê²°ê³¼ë¥¼ ì €ì¥
 
 	public Calculator() {
-		// ´İ±â ¹öÆ°À» ´©¸£¸é ¸Ş¸ğ¸®¿¡¼­ ÇØÁ¦
+		// ë‹«ê¸° ë²„íŠ¼ì„ ëˆ„ë¥´ë©´ ë©”ëª¨ë¦¬ì—ì„œ í•´ì œ
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setResizable(false); // ÇÁ·¹ÀÓ Ã¢ »çÀÌÁî °íÁ¤
+		this.setResizable(false); // í”„ë ˆì„ ì°½ ì‚¬ì´ì¦ˆ ê³ ì •
 
-		// ÄÄÆ÷³ÍÆ® °´Ã¼ »ı¼º
-		tf = new JTextField("0", 20); // ÃÊ±â 0À» Ãâ·Â, Å©±â 20
-		tf.setHorizontalAlignment(JTextField.RIGHT); // ÃÊ±â 0À» ¿À¸¥ÂÊ Á¤·Ä
-		b1 = new JButton("<-");
+		// ì»´í¬ë„ŒíŠ¸ ê°ì²´ ìƒì„±
+		tf = new JTextField("0", 20); // ì´ˆê¸° 0ì„ ì¶œë ¥, í¬ê¸° 20
+		tf.setHorizontalAlignment(JTextField.RIGHT); // ì´ˆê¸° 0ì„ ì˜¤ë¥¸ìª½ ì •ë ¬
+		b1 = new JButton("<--");
 		b2 = new JButton("ce");
 		b3 = new JButton("c");
 		b4 = new JButton("/");
@@ -46,11 +46,11 @@ public class Calculator extends JFrame implements ActionListener {
 		b19 = new JButton(".");
 		b20 = new JButton("=");
 
-		// ÆĞ³ÎÀ» ·¹ÀÌ¾Æ¿ôº¯°æ
+		// íŒ¨ë„ì„ ë ˆì´ì•„ì›ƒë³€ê²½
 		panel = new JPanel();
 		panel.setLayout(new GridLayout(5, 4, 2, 2));
 
-		// ÆĞ³Î¿¡ ¹öÆ°À» ºÎÂø
+		// íŒ¨ë„ì— ë²„íŠ¼ì„ ë¶€ì°©
 		panel.add(b1);
 		panel.add(b2);
 		panel.add(b3);
@@ -72,12 +72,12 @@ public class Calculator extends JFrame implements ActionListener {
 		panel.add(b19);
 		panel.add(b20);
 
-		// ÇÁ·¹ÀÓ¿¡ ºÎÂø
+		// í”„ë ˆì„ì— ë¶€ì°©
 		add(tf, "North");
 		add(panel);
 
-		// ¹öÆ°¿¡ ÀÌº¥Æ®·ê ºÎÂø
-		// implements ActionListener - ³» Å¬·¡½º¿¡¼­ ¹Ş¾ÒÀ¸¹Ç·Î this
+		// ë²„íŠ¼ì— ì´ë²¤íŠ¸ë£° ë¶€ì°©
+		// implements ActionListener - ë‚´ í´ë˜ìŠ¤ì—ì„œ ë°›ì•˜ìœ¼ë¯€ë¡œ this
 		b1.addActionListener(this);
 		b2.addActionListener(this);
 		b3.addActionListener(this);
@@ -108,29 +108,29 @@ public class Calculator extends JFrame implements ActionListener {
 		new Calculator();
 	}
 
-	@Override // interface¸¦ ±¸ÇöÇÏ¿´À¸¹Ç·Î ActionListenerÀÇ actionPerformed ¿À¹ö¶óÀÌµù ÇÊ¿ä
+	@Override // interfaceë¥¼ êµ¬í˜„í•˜ì˜€ìœ¼ë¯€ë¡œ ActionListenerì˜ actionPerformed ì˜¤ë²„ë¼ì´ë”© í•„ìš”
 	public void actionPerformed(ActionEvent e) {
 
-		String data = e.getActionCommand(); // ¹öÆ°ÀÇ ¶óº§°ªÀ» ¸®ÅÏ
+		String data = e.getActionCommand(); // ë²„íŠ¼ì˜ ë¼ë²¨ê°’ì„ ë¦¬í„´
 
 		if (data.equals("0") || data.equals("1") || data.equals("2") || data.equals("3") || data.equals("4")
 				|| data.equals("5") || data.equals("6") || data.equals("7") || data.equals("8") || data.equals("9")
 				|| data.equals("00")) {
 			if ((tf.getText()).equals("0") || (tf.getText()).equals("00"))
-				tf.setText(""); // ÃÖÃÊ 0ÀÌ¾Æ´Ñ ´Ù¸¥ ¼ıÀÚ¸¦ ´©¸£¸é °ø¹éÀ¸·Î ÃÊ±âÈ­
-			val1 = tf.getText() + data; // ¼ıÀÚ¸¦ ÀÌ¾î¼­ ºÙ¿©ÁÜ
-			tf.setText(val1); // ÇØ´ç °ªÀ» TextField¿¡ set
+				tf.setText(""); // ìµœì´ˆ 0ì´ì•„ë‹Œ ë‹¤ë¥¸ ìˆ«ìë¥¼ ëˆ„ë¥´ë©´ ê³µë°±ìœ¼ë¡œ ì´ˆê¸°í™”
+			val1 = tf.getText() + data; // ìˆ«ìë¥¼ ì´ì–´ì„œ ë¶™ì—¬ì¤Œ
+			tf.setText(val1); // í•´ë‹¹ ê°’ì„ TextFieldì— set
 		}
 
 		if (data.equals(".")) {
 			if ((tf.getText()).equals("0") || (tf.getText()).equals("00"))
-				tf.setText("0"); // ¼Ò¼öÁ¡ ¿¬»ê½Ã 0ÀÌ Ã¹ ÀÚ¸®¿¡ µé¾î°¬À» ¶§ °ø¹éÀ¸·Î ÃÊ±âÈ­ ½ÃÅ°´Â °ÍÀ» ¹æÁö
-			val1 = tf.getText() + data; // ¼ıÀÚ¸¦ ÀÌ¾î¼­ ºÙ¿©ÁÜ
-			tf.setText(val1); // ÇØ´ç °ªÀ» TextField¿¡ set
+				tf.setText("0"); // ì†Œìˆ˜ì  ì—°ì‚°ì‹œ 0ì´ ì²« ìë¦¬ì— ë“¤ì–´ê°”ì„ ë•Œ ê³µë°±ìœ¼ë¡œ ì´ˆê¸°í™” ì‹œí‚¤ëŠ” ê²ƒì„ ë°©ì§€
+			val1 = tf.getText() + data; // ìˆ«ìë¥¼ ì´ì–´ì„œ ë¶™ì—¬ì¤Œ
+			tf.setText(val1); // í•´ë‹¹ ê°’ì„ TextFieldì— set
 		}
 
 		if (data.equals("+") || data.equals("-") | data.equals("*") | data.equals("/") | data.equals("=")) {
-			if (data.equals("+")) { // ´õÇÏ±â ¿¬»ê
+			if (data.equals("+")) { // ë”í•˜ê¸° ì—°ì‚°
 				tf.setText("");
 				if (val1 != null) {
 					val2 = val1;
@@ -139,7 +139,7 @@ public class Calculator extends JFrame implements ActionListener {
 				sign = "+";
 			}
 
-			if (data.equals("-")) { // »©±â ¿¬»ê
+			if (data.equals("-")) { // ë¹¼ê¸° ì—°ì‚°
 				tf.setText("");
 				if (val1 != null) {
 					val2 = val1;
@@ -148,7 +148,7 @@ public class Calculator extends JFrame implements ActionListener {
 				sign = "-";
 			}
 
-			if (data.equals("*")) { // °öÇÏ±â ¿¬»ê
+			if (data.equals("*")) { // ê³±í•˜ê¸° ì—°ì‚°
 				tf.setText("");
 				if (val1 != null) {
 					val2 = val1;
@@ -157,7 +157,7 @@ public class Calculator extends JFrame implements ActionListener {
 				sign = "*";
 			}
 
-			if (data.equals("/")) { // ³ª´©±â ¿¬»ê
+			if (data.equals("/")) { // ë‚˜ëˆ„ê¸° ì—°ì‚°
 				tf.setText("");
 				if (val1 != null) {
 					val2 = val1;
@@ -166,34 +166,34 @@ public class Calculator extends JFrame implements ActionListener {
 				sign = "/";
 			}
 
-			if (data.equals("=")) { // = ¿¬»ê
-				if (sign.equals("+")) // ´õÇÏ±â ¿¬»ê - ¼Ò¼öÁ¡ °è»êÀ» À§ÇØ¼­ DoubleÇüÀ¸·Î ¹İÈ¯
+			if (data.equals("=")) { // = ì—°ì‚°
+				if (sign.equals("+")) // ë”í•˜ê¸° ì—°ì‚° - ì†Œìˆ˜ì  ê³„ì‚°ì„ ìœ„í•´ì„œ Doubleí˜•ìœ¼ë¡œ ë°˜í™˜
 					result = Double.parseDouble(val2) + Double.parseDouble(val1);
 
-				if (sign.equals("-")) // »©±â ¿¬»ê - ¼Ò¼öÁ¡ °è»êÀ» À§ÇØ¼­ DoubleÇüÀ¸·Î ¹İÈ¯
+				if (sign.equals("-")) // ë¹¼ê¸° ì—°ì‚° - ì†Œìˆ˜ì  ê³„ì‚°ì„ ìœ„í•´ì„œ Doubleí˜•ìœ¼ë¡œ ë°˜í™˜
 					result = Double.parseDouble(val2) - Double.parseDouble(val1);
 
-				if (sign.equals("*")) // °öÇÏ±â ¿¬»ê - ¼Ò¼öÁ¡ °è»êÀ» À§ÇØ¼­ DoubleÇüÀ¸·Î ¹İÈ¯
+				if (sign.equals("*")) // ê³±í•˜ê¸° ì—°ì‚° - ì†Œìˆ˜ì  ê³„ì‚°ì„ ìœ„í•´ì„œ Doubleí˜•ìœ¼ë¡œ ë°˜í™˜
 					result = Double.parseDouble(val2) * Double.parseDouble(val1);
 
-				if (sign.equals("/")) // ³ª´©±â ¿¬»ê - ¼Ò¼öÁ¡ °è»êÀ» À§ÇØ¼­ DoubleÇüÀ¸·Î ¹İÈ¯
+				if (sign.equals("/")) // ë‚˜ëˆ„ê¸° ì—°ì‚° - ì†Œìˆ˜ì  ê³„ì‚°ì„ ìœ„í•´ì„œ Doubleí˜•ìœ¼ë¡œ ë°˜í™˜
 					result = Double.parseDouble(val2) / Double.parseDouble(val1);
 
 				tf.setText("");
 				// val2 = String.valueOf(result);
 				// tf.setText(val2);
-				val2 = String.format("%.2f", result); // ¼Ò¼öÁ¡ ¹Ø 2ÀÚ¸® ±îÁö¸¸ Ãâ·Â
-				tf.setText(val2); // ÇØ´ç °ªÀ» TextField¿¡ set
+				val2 = String.format("%.2f", result); // ì†Œìˆ˜ì  ë°‘ 2ìë¦¬ ê¹Œì§€ë§Œ ì¶œë ¥
+				tf.setText(val2); // í•´ë‹¹ ê°’ì„ TextFieldì— set
 				val1 = null;
 			}
 		}
 
-		if (data.equals("ce")) { // µÎ¹øÂ° ÇÇ¿¬»êÀÚ¸¦ ÃÊ±âÈ­
+		if (data.equals("ce")) { // ë‘ë²ˆì§¸ í”¼ì—°ì‚°ìë¥¼ ì´ˆê¸°í™”
 			tf.setText("0");
 			val1 = null;
 		}
 
-		if (data.equals("c")) { // °è»ê±â ÀüÃ¼¸¦ ÃÊ±âÈ­
+		if (data.equals("c")) { // ê³„ì‚°ê¸° ì „ì²´ë¥¼ ì´ˆê¸°í™”
 			tf.setText("0");
 			val1 = null;
 			val2 = null;
@@ -205,12 +205,12 @@ public class Calculator extends JFrame implements ActionListener {
 			char ch[];
 			String temp;
 
-			ch = val1.toCharArray(); // val1¿¡ StringÇü ÇÇ¿¬»êÀÚ¸¦ ¹è¿­·Î ¹Ş´Â´Ù.
-			ch[ch.length - 1] = '\n'; // °¡Àå ÃÖ±Ù¿¡ ÀÔ·Â¹ŞÀº ¼ıÀÚ¸¦ null°ªÀ¸·Î ¹Ù²Û´Ù.
+			ch = val1.toCharArray(); // val1ì— Stringí˜• í”¼ì—°ì‚°ìë¥¼ ë°°ì—´ë¡œ ë°›ëŠ”ë‹¤.
+			ch[ch.length - 1] = '\n'; // ê°€ì¥ ìµœê·¼ì— ì…ë ¥ë°›ì€ ìˆ«ìë¥¼ nullê°’ìœ¼ë¡œ ë°”ê¾¼ë‹¤.
 			String str = new String(ch);
-			temp = str.substring(0, ch.length - 1); // 0¹øºÎÅÍ null°ª Àü±îÁö substringÀ¸·Î Àß¶ó¼­ ÀúÀå
+			temp = str.substring(0, ch.length - 1); // 0ë²ˆë¶€í„° nullê°’ ì „ê¹Œì§€ substringìœ¼ë¡œ ì˜ë¼ì„œ ì €ì¥
 			val1 = temp;
-			tf.setText(temp); // ÇØ´ç °ªÀ» TextField¿¡ set
+			tf.setText(temp); // í•´ë‹¹ ê°’ì„ TextFieldì— set
 		}
 	}
 }
