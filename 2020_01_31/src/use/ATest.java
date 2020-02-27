@@ -7,7 +7,8 @@ public class ATest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		A ref;
-		//new A();//Cannot instatiate the type A : A╢б юн╫╨ео╫╨╦╕ ╦╦╣И╪Ж ╬Ь╢б е╦ютюл╧г╥н ©║╥╞╟║ Ё╜╢ы
+		//Л²╣Л√╢Ц┘ёЙ╠╟Ц┘ёЛ√╢Й╠╟Л²╣Л√╢Ц┘ёЛ√╣Л²╢Ц┘⌠Й╦╟
+		//new A();//Cannot instatiate the type A : AО©╫О©╫ О©╫н╫О©╫О©╫о╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫ е╦О©╫О©╫О©╫л╧г╥О©╫ О©╫О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫
 	}
 
 }
