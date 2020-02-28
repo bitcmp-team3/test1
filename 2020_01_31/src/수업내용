@@ -1,0 +1,23 @@
+final
+abstract
+
+접근연산자				public  protected  [default]  private  static  final abstract 
+outer class			  o         x          o         x		  x		 o		o
+member				  o			x          o		 o		  o		 o
+field				  o			x		   o		o,x						x
+method				  o			x		   o		o,x						o
+inner class			  o			o		   o		o,x						o
+
+//////////////////////////////////////////////////////////
+static method { 인스턴스가 만들어지기 전에 인식
+   static variable O
+   non static X  ==> 이유 : 인스턴스(non static member)가 만들어지기 전에는 non static member를 인식 못함
+}
+
+final은 오버라이딩을 하지못하게 막는 것(내용이 바뀌면 안되는 중요한 로직을 갖고있는 메서드들)
+오버라이딩(재정의)
+부모클래스가 갖고있는 메서드를 하위클래스에서 가져다가 내용을 바꾸어쓰는것
+
+abstract은 반드시 하위클래스에서 오버라이딩을 해야하는 것. 인스턴스를 생성할 수 없음
+abstract한 메서드가 하나라도 나오면 해당 클래스는 abstract한 클래스로 정의한다.
+
